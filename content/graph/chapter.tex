@@ -1,0 +1,69 @@
+\chapter{Graph}
+
+\section{General}
+	\kactlimport{SCC.h}
+	\kactlimport{BCC.h}
+	\kactlimport{2SAT.h}
+	\kactlimport{SmallDijkstra.h}
+	\kactlimport{EulerWalk.h}
+	\kactlimport{MaximumClique.h}
+
+\section{Flows, Matchings, Matroids}
+	\kactlimport{EZFlow.h}
+	\kactlimport{DinicFlow.h}
+	\kactlimport{GlobalMinCut.h}
+	\kactlimport{GomoryHu.h}
+	\kactlimport{DFSMatching.h}
+	\kactlimport{HopcroftKarp.h}
+  	\kactlimport{Blossom.h}
+	\kactlimport{MinCostMaxFlow.h}
+	\kactlimport{NetworkSimplex.h}
+	\kactlimport{WeightedMatching.h}
+	\kactlimport{MatroidIntersection.h}
+
+
+
+	\subsection{Flows with demands}
+	To solve flow with demands where $l(u, v) \leq f(u, v) \leq h(u, v)$, 
+	first find feasible flow by solving max $S'$-$T'$ flow on network:
+	\begin{itemize}[noitemsep,topsep=0pt]
+		\item $c'(S',v)=\sum_{u \in V} l(u,v)$ for all $v \in V$
+		\item $c'(v, T') = \sum_{w \in V} l(v, w)$ for all $v \in V$
+		\item $c'(u, v) = h(u, v) - l(u, v)$ for all $(u, v) \in E$
+		\item $c'(T,S)=\infty$
+	\end{itemize}
+	Assert that flow equals $\sum l(u, v)$. Next, solve max flow 
+	on "residual" graph given flow function (take each edge
+	$(u, v) \in E$ and set $c(u, v) = h(u, v) - l(u, v), f(u, v) = f'(u, v)$).
+	For minimum flow, find max $T-S$ flow on the same network. 
+
+
+\section{Trees}
+	\kactlimport{BinaryLifting.h}
+	\kactlimport{LCA.h}
+	\kactlimport{CompressTree.h}
+	\kactlimport{Centroid.h}
+	\kactlimport{HLD.h}
+	\kactlimport{LinkCut.h}
+
+\section{Misc}
+	\kactlimport{DominatorTree.h}
+	\kactlimport{DirectedMST.h}
+	\kactlimport{BottleneckTree.h}
+	\kactlimport{EdgeColoring.h}
+
+\section{Math}
+	\subsection{Number of Spanning Trees}
+		% I.e. matrix-tree theorem.
+		% Source: https://en.wikipedia.org/wiki/Kirchhoff%27s_theorem
+		% Test: stress-tests/graph/matrix-tree.cpp
+		Create an $N\times N$ matrix \texttt{mat}, and for each edge $a \rightarrow b \in G$, do
+		\texttt{mat[a][b]--, mat[b][b]++} (and \texttt{mat[b][a]--, mat[a][a]++} if $G$ is undirected).
+		Remove the $i$th row and column and take the determinant; this yields the number of directed spanning trees rooted at $i$
+		(if $G$ is undirected, remove any row/column).
+
+	\subsection{Erdős–Gallai theorem}
+		% Source: https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93Gallai_theorem
+		% Test: stress-tests/graph/erdos-gallai.cpp
+		A simple graph with node degrees $d_1 \ge \dots \ge d_n$ exists iff $d_1 + \dots + d_n$ is even and for every $k = 1\dots n$,
+		\[ \sum _{i=1}^{k}d_{i}\leq k(k-1)+\sum _{i=k+1}^{n}\min(d_{i},k). \]

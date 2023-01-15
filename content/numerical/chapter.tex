@@ -1,0 +1,67 @@
+\chapter{Numerical}
+
+\section{Integrate}
+	\kactlimport{Integrate.h}
+	\kactlimport{IntegrateAdaptive.h}
+  
+\section{Optimization}
+	\kactlimport{Simplex.h}
+	
+	\subsection{LP dualization}
+	To dualize a LP, add one dual variable for each primal 
+	constraint. Function to optimize becomes $b^T y$. 
+	Then, you have one dual constraint for each primal variable, 
+	given by the primal constraints in which they appear. 
+	\begin{center}
+		\begin{tabular}{ |c|c| } 
+		 \hline
+		 \textbf{Primal} & \textbf{Dual} \\
+		 \hline
+		 max $c^T x$ s.t. $Ax \leq b, x \geq 0$ & min $b^T y$ s.t. $A^T y \geq c, y \geq 0$ \\ 
+		 max $c^T x$ s.t. $Ax \leq b$ & min $b^T y$ s.t. $A^T y = c, y \geq 0$ \\ 
+		 max $c^T x$ s.t. $Ax = b, x \geq 0$ & min $b^T y$ s.t. $A^T y \geq c$ \\ 
+		 \hline
+		\end{tabular}
+	\end{center}
+	If primal is not unbounded nor infeasible, then neither the
+	dual is, and strong duality holds (i.e., $c^T x^* = b^T y^*$).
+
+\section{Matrices}
+	\kactlimport{RowEchelon.h}
+	\kactlimport{SolveLinear.h}
+	\kactlimport{MatrixDeterminant.h}
+	\kactlimport{MatrixInverse.h}
+
+	\subsection{Matrix determinant lemma}
+		Suppose $A$ is an invertible square matrix and $u$, $v$ are column vectors. Then:
+		$$det(A + u v^{T}) = (1 + v^{T} A^{-1} u) det(A) = det(A) + v^{T} adj(A) u$$
+		Here, $u v^{T}$ is the outer product of $u$ and $v$. 
+		The first and third expressions are equal even when the square matrix $A$ is not invertible.
+
+\section{Search}
+	\kactlimport{GoldenSectionSearch.h}
+	\kactlimport{TernarySearch.h}
+	\kactlimport{FracBinarySearch.h}
+
+
+\section{Fourier transforms}
+	\kactlimport{FFT.h}
+	\kactlimport{NTT.h}
+	\kactlimport{FST.h}
+	\kactlimport{SubsetConv.h}
+
+
+\section{Polynomials}
+	\kactlimport{PolyInterpolate.h}
+	\kactlimport{PolyMul.h}
+	\kactlimport{PolyInv.h}
+	\kactlimport{PolyDivRem.h}
+	\kactlimport{PolyRoots.h}
+
+\section{Recurrences}
+	\kactlimport{BerlekampMassey.h}
+	\kactlimport{LinearRecurrence.h}
+	\subsection{Char. polynomial}
+	If $a_n = c_1 a_{n-1} + \dots + c_k a_{n-k}$, and $r_1, \dots, r_k$ are distinct roots of $x^k + c_1 x^{k-1} + \dots + c_k$, there are $d_1, \dots, d_k$ s.t.
+	\[a_n = d_1r_1^n + \dots + d_kr_k^n. \]
+	Non-distinct roots $r$ become polynomial factors, e.g. $a_n = (d_1n + d_2)r^n$.

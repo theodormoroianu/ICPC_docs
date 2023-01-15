@@ -1,0 +1,7 @@
+/build/
+*.aux
+*.log
+a.out
+header.tmp
+.vscode
+*.DS_Store
