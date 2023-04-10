@@ -38,7 +38,7 @@ vector<bool> MatrInter(M1 m1, M2 m2, vector<int> w) {
       if (!inq[v]) inq[v] = 1, q.push_back(v);
     };
     for (auto node : m1(sol))
-      push(node, -1, 1LL * w[node] * M);
+      push(node, -1, 1LL * w[node] * n);
     for (int i = 0; i < (int)q.size(); ++i) {
       int node = q[i]; inq[node] = 0;
       for (auto vec : graph[node])
