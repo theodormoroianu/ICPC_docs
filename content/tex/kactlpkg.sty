@@ -12,7 +12,9 @@
 \usepackage{tocloft}                    % Custom Table of Contents
 \usepackage{titletoc}                   % Design control over Table of Contents
 \usepackage{ifthen}                     % To enable some conditional programming in LaTeX
-\usepackage{courier}                    % To get bold typewriter typeface
+%\usepackage{courier}                   % To get bold typewriter typeface
+\usepackage{sourcecodepro}              % Better typeface for code
+\usepackage[T1]{fontenc}
 \usepackage{graphicx}                   % To rotate page numbers
 \usepackage{fix-cm}                     % Large font sizes
 \usepackage{paralist}                   % For compact enumerations
@@ -201,7 +203,7 @@
 \lstset{breaklines=true}
 \lstset{basicstyle=\footnotesize\ttfamily}
 \lstset{commentstyle=\normalfont\itshape}
-\lstset{literate={^}{\caret}{1} {~}{\tilde}{1} {\{}{\nicelbrace}{1} {\}}{\nicerbrace}{1}}
+\lstset{literate={^}{\caret}{1} {~}{\tilde}{1}}
 \lstset{emptylines=*1}
 \lstset{inputencoding=utf8}
 \lstset{aboveskip=3pt}
