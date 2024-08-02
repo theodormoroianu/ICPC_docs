@@ -14,17 +14,19 @@
 #include "Point.h"
 
 vector<Point> MinkowskiSum(vector<Point> P, vector<Point> Q) {
+  rotate(P.begin(), min_element(P.begin(), P.end()), P.end());
+  rotate(Q.begin(), min_element(Q.begin(), Q.end()), Q.end());
+  P.push_back(P[0]);
+  P.push_back(P[1]);
+  Q.push_back(Q[0]);
+  Q.push_back(Q[1]);
   int n = P.size(), m = Q.size();
-  vector<Point> R = {P[0] + Q[0]};
-  for (int i = 1, j = 1; i < n || j < m; ) {
-    if (i < n && (j == m || 
-        cross(P[i] - P[i - 1], Q[j] - Q[j - 1]) > 0)) {
-      R.push_back(R.back() + P[i] - P[i - 1]);
-      ++i;
-    } else {
-      R.push_back(R.back() + Q[j] - Q[j - 1]);
-      ++j;
-    }
+  vector<Point> R;
+  for (int i = 0, j = 0; i < n - 2 || j < m - 2; ) {
+    R.push_back(P[i] + Q[j]);
+    auto c = cross(P[i + 1] - P[i], Q[j + 1] - Q[j]);
+    if (c >= 0 && i < n - 2) ++i;
+    if (c <= 0 && j < m - 2) ++j;
   }
   return R;
 }
