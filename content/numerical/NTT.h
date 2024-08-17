@@ -16,9 +16,13 @@
 #include "../number-theory/ModInt.h"
 
 // Good MOD: (119 << 23 + 1), (5 << 25 + 1), (5LL << 55 + 1)
+const int K = 119;
+
 void DFT(vector<ModInt> &a, bool rev) {
   int n = a.size(); auto b = a; // assert(!(n & (n - 1)));
-  ModInt g = 1; while (g.pow((MOD - 1) / 2) == 1) g = g + 1;
+  ModInt g = 1;
+  while (g.pow((MOD - 1) / 2) == 1 || g.pow((MOD - 1) / K) == 1)
+    g = g + 1;
   if (rev) g = g.inv();
   
   for (int step = n / 2; step; step /= 2) {
