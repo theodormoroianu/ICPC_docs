@@ -24,6 +24,6 @@ int readInt() {
 	int a, c;
 	while ((a = gc()) < 40);
 	if (a == '-') return -readInt();
-	while ((c = gc()) >= 48) a = a * 10 + c - 480;
+	while ((c = gc()) >= 48) a = a * 10 + c - 48;
 	return a - 48;
 }

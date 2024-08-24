@@ -22,7 +22,7 @@ int Tangents(Circle c1, Circle c2,
   if (sgn(d2) == 0 || sgn(h2) == -1) return 0;
   for (double z : {-1, 1}) {
     Point v = (d * dr + perp(d) * sqrt(h2) * z) / d2;
-    out.emplace_back(c1 + v * c1.r, c2 + v * c2.r);
+    out.emplace_back(c1.c + v * c1.r, c2.c + v * c2.r);
     if (sgn(h2) == 0) return 1;
   }
   return 2;

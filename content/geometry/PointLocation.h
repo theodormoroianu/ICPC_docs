@@ -5,8 +5,8 @@
  * Source: Wikipedia
  * Description: Given a list of points P, a list of segments E,
  * and a list of query points Q, computes for each point the
- * segment that is closest from each query point looking down
- * (towards y = -INF). Returns -1 if no such segment is found,
+ * segment that is closest from each query point looking UP
+ * (towards y = +INF). Returns -1 if no such segment is found,
  * -2 if query point coincides with input point, or the index
  * of the segment otherwise. Products are up to $O(X^2)$.
  * Status: Tested on pointinpolygon.

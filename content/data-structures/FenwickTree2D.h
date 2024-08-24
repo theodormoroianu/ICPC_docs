@@ -3,7 +3,7 @@
  * Date: 2017-05-11
  * License: CC0
  * Source: folklore
- * Description: Computes sums $a[i,j]$ for all $i<x$, $j<y$, 
+ * Description: Computes sums $a[i,j]$ for all $i<=x$, $j<=y$, 
  * and increases single elements $a[x,y]$.
  * Requires that the elements to be updated are known in 
  * advance (call FakeUpdate() before Build()).
@@ -40,7 +40,7 @@ struct Fenwick2D {
   }
   int Query(int x, int y) {
     int sum = 0;
-    for (; x > 0; x -= (x & -x))
+    for (++x; x > 0; x -= (x & -x))
     for (int i = ind(x,y); i > 0; i -= (i & -i))
       sum = sum + T[x][i];
     return sum;
