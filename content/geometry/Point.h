@@ -8,6 +8,13 @@
 
 using Point = complex<double>;
 
+namespace std {
+  bool operator<(Point a, Point b) {
+    return make_pair(a.real(), a.imag()) < 
+      make_pair(b.real(), b.imag());
+  }
+}
+
 const double PI = 4.0 * atan(1.0);
 const double EPS = 1e-9; // Good eps for long double is ~1e-11
 
@@ -34,12 +41,6 @@ Point rotate_ccw(Point a, double theta) {
 }
 int half(Point p) { return p < 0; }
 
-namespace std {
-  bool operator<(Point a, Point b) {
-    return make_pair(a.real(), a.imag()) < 
-      make_pair(b.real(), b.imag());
-  }
-}
 // abs() is norm (length) of vector
 // norm() is square of abs()
 // arg() is angle of vector

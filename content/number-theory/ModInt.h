@@ -9,7 +9,7 @@
  */
 #pragma once
 
-const int MOD = 17; // change to something else
+const int MOD = 998244353; // change to something else
 struct ModInt {
   int x;
   ModInt(int x = 0) : x(x + (x < 0) * MOD - (x >= MOD) * MOD){}
