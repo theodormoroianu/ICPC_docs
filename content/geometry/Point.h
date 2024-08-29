@@ -39,7 +39,7 @@ Point perp(Point a) { // +90deg
 Point rotate_ccw(Point a, double theta) {
   return a * polar(1.0, theta); 
 }
-int half(Point p) { return p < 0; }
+int half(Point p) { return p < 0.; }
 
 // abs() is norm (length) of vector
 // norm() is square of abs()
