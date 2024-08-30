@@ -10,6 +10,9 @@
  */
 #pragma once
 
+using ll = long long;
+const ll INF = 1e18;
+
 bool QUERY;
 struct Line {
   mutable ll a, b, p;
