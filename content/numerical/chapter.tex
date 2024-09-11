@@ -12,7 +12,10 @@
 	constraint. Function to optimize becomes $b^T y$. 
 	Then, you have one dual constraint for each primal variable, 
 	given by the primal constraints in which they appear. 
-	\begin{center}
+	If primal is not unbounded nor infeasible, then neither the
+	dual is, and strong duality holds (i.e., $c^T x^* = b^T y^*$).
+
+	%\begin{center}
 		\begin{tabular}{ |c|c| } 
 		 \hline
 		 \textbf{Primal} & \textbf{Dual} \\
@@ -22,9 +25,8 @@
 		 max $c^T x$ s.t. $Ax = b, x \geq 0$ & min $b^T y$ s.t. $A^T y \geq c$ \\ 
 		 \hline
 		\end{tabular}
-	\end{center}
-	If primal is not unbounded nor infeasible, then neither the
-	dual is, and strong duality holds (i.e., $c^T x^* = b^T y^*$).
+	%\end{center}
+
 
 \section{Matrices}
 	\kactlimport{RowEchelon.h}

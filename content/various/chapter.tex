@@ -8,6 +8,7 @@
 
 \section{Dynamic programming}
 	\kactlimport{KnuthDP.h}
+    \kactlimport{OnlineFFT.h}
 
 \section{Debugging tricks}
 	\begin{itemize}
@@ -31,6 +32,8 @@
 			\item \lstinline{#pragma GCC optimize ("Ofast")} will make GCC auto-vectorize loops and optimizes floating points better.
 			\item \lstinline{#pragma GCC target ("avx2")} can double performance of vectorized code, but causes crashes on old machines.
 			\item \lstinline{#pragma GCC optimize ("trapv")} kills the program on integer overflows (but is really slow).
+            \item \lstinline{#pragma GCC optimize ("unroll-loops")} unrolls loops.
+            \item \lstinline{#pragma GCC target ("avx2,bmi,bmi2,lzcnt,popcnt")} 
 		\end{itemize}
 	\kactlimport{Montgomery.h}
 	\kactlimport{FastInput.h}

@@ -99,3 +99,14 @@
 			\item ways a convex polygon with $n+2$ sides can be cut into triangles by connecting vertices with straight lines.
 			\item permutations of $[n]$ with no 3-term increasing subseq.
 		\end{itemize}
+
+        Number of bracket sequences of length $2n$ that begin with $k$ open brackets: $\frac{k+1}{n+1}\binom{2n - k}{n - k}$
+
+        Number of ways $n+m$ open and $n-m$ close brackets can be arranged to form a start of a valid bracket sequence: $\frac{2m+1}{m+n+1}\binom{2n}{m+n}$
+
+    \subsection{Narayana numbers}
+        \[ N(n, k) = \frac{1}{n} \binom{n}{k} \binom{n}{k-1} \]
+        \begin{itemize}[noitemsep]
+            \item bracket sequences of length $2n$ that consist of $k$ ``blocks'' (i.e.\ there are $k$ prefixes that are balanced).
+            \item unlabeled rooted trees with $n$ edges and $k$ leaves
+        \end{itemize}
