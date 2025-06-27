@@ -35,6 +35,7 @@ Circle CircumCircle(Point a, Point b, Point c) {
 // +1 if inside circle, 0 if on circle, -1 if outside.
 int InsideCircum(Point p, Point a, Point b, Point c) {
   // (can be ll if coords are < 2e4)
+  if (det(a, b, c) < 0) swap(a, b);
   __int128_t p2 = norm(p), A = norm(a) - p2,
       B = norm(b) - p2, C = norm(c) - p2;
   return sgn(det(p, a, b) * C + det(p, b, c) * A 
